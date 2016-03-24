@@ -90,8 +90,7 @@ public:
 public slots:
     void actionSetUp()
     {
-        double x = 0;
-        for (int i = 0; i < N; i++)
+        for (double x = 0; x < wgt->width(); x += wgt->width() / N)
         {
             tableWidget->insertRow(tableWidget->rowCount());
             tableWidget->setItem(tableWidget->rowCount()-1, 0,  new QTableWidgetItem(QString::number(tableWidget->rowCount())));
@@ -100,8 +99,6 @@ public slots:
             tableWidget->setItem(tableWidget->rowCount()-1, 3,  new QTableWidgetItem(QString::number( 1 )));
 
             wgt->funcArray.append( QPointF(x, f(x) ));
-
-            x += M_PI/4;
 
         }
         updateScreen();
