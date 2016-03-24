@@ -10,6 +10,7 @@
 #include "ui_mainwindow.h"
 #include "qpaintwidget.h"
 #include "congif.h"
+#include "calculationkit.h"
 
 class MainWindow : public  QMainWindow, public Ui::MainWindow
 {
@@ -112,14 +113,45 @@ public slots:
         int dotNumber = lineEditDotCount->text().toInt(&isNumber);
         if (isNumber)
         {
+            QVector <double> vX;
+            QVector <double> vY;
+            QVector <double> vP;
 
+            //Gettings info from table/
+            for (int i = 0; i < tableWidget->rowCount(); i ++)
+            {
+                QTableWidgetItem *itemX = tableWidget->item(i, 1);
+                QTableWidgetItem *itemY = tableWidget->item(i, 2);
+                QTableWidgetItem *itemP = tableWidget->item(i, 3);
+
+                double x,y,p;
+                bool isXDouble, isYDouble, isPDouble;
+
+                x = itemX->text().toDouble(&isXDouble);
+                y = itemY->text().toDouble(&isYDouble);
+                p = itemP->text().toDouble(&isPDouble);
+
+                if ( ! ( isXDouble && isYDouble &&  isPDouble) )
+                {
+                    showMsg( QString("Неверное данные в строке таблицы %1 🌝").arg(QString::number(i)) );
+                    return;
+                }
+
+                vX.append(x);
+                vY.append(y);
+                vP.append(p);
+
+            }
+            /*************************/
+
+            CalculationKit calcInstance = CalculationKit(dotNumber,wgt->width(), wgt->height(), vX, vY, vP);
+            wgt->curveArray = calcInstance.calculate();
+            updateScreen();
         }
         else
-         {
+        {
             showMsg( "Кол-во должно быть положительным целым числом 🌝" );
         }
-
-        //...
 
     }
 
