@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    qpaintwidget.cpp
+    qpaintwidget.cpp \
+    calculationkit.cpp
 
 HEADERS  += mainwindow.h \
     congif.h \
-    qpaintwidget.h
+    qpaintwidget.h \
+    calculationkit.h
 
 FORMS    += mainwindow.ui
