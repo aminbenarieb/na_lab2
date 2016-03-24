@@ -18,7 +18,7 @@
 #define kRadianToDegree(radian) ( radian*180/M_PI )
 #define kDegreeToRadian(degree) ( degree*M_PI/180 )
 
-#define N 10
+#define N 6
 #define f(x) ( 100 * cos ( kDegreeToRadian (x) ) )
 
 #endif // CONGIF_H
