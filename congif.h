@@ -7,7 +7,7 @@
 #define kBtnCalcGraphText "Постоить график"
 #define kBtnChangeP "Изменить вес"
 #define kBtnQuitText "Выйти"
-#define kLabelDotCount "Кол-во точек"
+#define kLabelDotCount "Степень"
 #define kLineEditPlaceHolderDotCount "3"
 
 #define kDialogLabelTextP "Новый вес"
@@ -15,7 +15,7 @@
 #define kDialogBtnTextCancel "Отмена"
 
 #define kDrawPointRadius 3
-#define kDrawPenWidth 1
+#define kDrawPenWidth 2
 
 #define kmin(a, b) ( ( a < b) ? a : b )
 #define kmax(a, b) ( ( a > b) ? a : b )
