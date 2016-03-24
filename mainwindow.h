@@ -45,7 +45,7 @@ public:
         tableWidget->setColumnWidth(0,26);
         tableWidget->setColumnWidth(1,46);
         tableWidget->setColumnWidth(2,46);
-        tableWidget->setColumnWidth(3,26);
+        tableWidget->setColumnWidth(3,46);
 
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setSelectionMode(QAbstractItemView:: SingleSelection);
@@ -168,7 +168,7 @@ public slots:
                     QTableWidgetItem *itemP = tableWidget->item(tableWidget->currentRow(), 3);
                     itemP->setText(QString::number(newP));
 
-
+                    actionCalcGraph();
                     updateScreen();
 
 
