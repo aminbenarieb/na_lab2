@@ -36,9 +36,9 @@ CalculationKit::CalculationKit(int dotCount, double screenWidth, double screenHe
 QVector <QPointF> CalculationKit::calculate()
 {
 
-    for (int i = 0; i < vX.count(); i++)
+    for (int i = 0; i < this->dotCount; i++)
     {
-        for (int j = 0; j < vX.count(); j++)
+        for (int j = 0; j < this->dotCount; j++)
         {
             matrix[i][j] = scalarMultXX(i,j);
         }
@@ -65,7 +65,7 @@ QVector <QPointF> CalculationKit::calculate()
 double CalculationKit::scalarMultXX(int k, int m)
 {
      double res = 0;
-     for (int i = 0; i < dotCount; i++)
+     for (int i = 0; i < this->vX.count(); i++)
      {
          res += vP[i] * pow(vX[i], k + m);
      }
@@ -75,7 +75,7 @@ double CalculationKit::scalarMultXX(int k, int m)
 double CalculationKit::scalarMultYX(int k)
 {
      double res = 0;
-     for (int i = 0; i < dotCount; i++)
+     for (int i = 0; i < this->vX.count(); i++)
      {
          res += vP[i] * pow(vX[i], k) * vY[i];
      }
