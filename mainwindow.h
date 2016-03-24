@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QMessageBox>
 
+#include "addpointdialog.h"
 #include "ui_mainwindow.h"
 #include "qpaintwidget.h"
 #include "congif.h"
@@ -70,6 +71,7 @@ public:
         //***** Buttons Settings ******
         pushButtonCalcGraph->setText(kBtnCalcGraphText);
         pushButtonQuit->setText(kBtnQuitText);
+        pushButtonChangeP->setText(kBtnChangeP);
         //*******************************
 
 
@@ -84,6 +86,7 @@ public:
         //*******************************
         QObject::connect(pushButtonCalcGraph, SIGNAL(clicked()), this, SLOT(actionCalcGraph()) );
         QObject::connect(pushButtonQuit, SIGNAL(clicked()), this, SLOT(actionQuit()) );
+        QObject::connect(pushButtonChangeP, SIGNAL(clicked()), this, SLOT(actionEditPoint()) );
         //*******************************
 
     }
@@ -154,6 +157,27 @@ public slots:
         }
 
     }
+    void actionEditPoint(){
+
+            if (tableWidget->currentRow() >= 0)
+            {
+                AddPointDialog* addDialog = new AddPointDialog;
+                if (addDialog->exec() == QDialog::Accepted) {
+
+                    double newP = addDialog->P().toFloat();
+                    QTableWidgetItem *itemP = tableWidget->item(tableWidget->currentRow(), 3);
+                    itemP->setText(QString::number(newP));
+
+
+                    updateScreen();
+
+
+                }
+                delete addDialog;
+
+            }
+
+        }
 
 private:
     bool eventFilter(QObject *, QEvent *);

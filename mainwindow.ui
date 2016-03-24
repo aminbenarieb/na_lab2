@@ -89,6 +89,13 @@
        <widget class="QTableWidget" name="tableWidget"/>
       </item>
       <item>
+       <widget class="QPushButton" name="pushButtonChangeP">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="verticalSpacer_3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>

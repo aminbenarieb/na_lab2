@@ -5,9 +5,14 @@
 
 #define kTextTitle "Среднеквадратичное приближение"
 #define kBtnCalcGraphText "Постоить график"
+#define kBtnChangeP "Изменить вес"
 #define kBtnQuitText "Выйти"
 #define kLabelDotCount "Кол-во точек"
 #define kLineEditPlaceHolderDotCount "3"
+
+#define kDialogLabelTextP "Новый вес"
+#define kDialogBtnTextOK "ОК"
+#define kDialogBtnTextCancel "Отмена"
 
 #define kDrawPointRadius 3
 #define kDrawPenWidth 1
