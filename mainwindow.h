@@ -38,11 +38,12 @@ public:
 
         //***** TableView Settings ******
 
-        tableWidget->setColumnCount(3);
+        tableWidget->setColumnCount(4);
         tableWidget->setFixedWidth(160);
         tableWidget->setColumnWidth(0,26);
         tableWidget->setColumnWidth(1,46);
         tableWidget->setColumnWidth(2,46);
+        tableWidget->setColumnWidth(3,26);
 
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setSelectionMode(QAbstractItemView:: SingleSelection);
@@ -53,6 +54,7 @@ public:
         tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("№"));
         tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("X"));
         tableWidget->setHorizontalHeaderItem(2, new QTableWidgetItem("Y"));
+        tableWidget->setHorizontalHeaderItem(3, new QTableWidgetItem("P"));
 
         tableWidget->verticalHeader()->setVisible(false);
 
@@ -95,6 +97,7 @@ public slots:
             tableWidget->setItem(tableWidget->rowCount()-1, 0,  new QTableWidgetItem(QString::number(tableWidget->rowCount())));
             tableWidget->setItem(tableWidget->rowCount()-1, 1,  new QTableWidgetItem(QString::number( x )));
             tableWidget->setItem(tableWidget->rowCount()-1, 2,  new QTableWidgetItem(QString::number( f(x) )));
+            tableWidget->setItem(tableWidget->rowCount()-1, 3,  new QTableWidgetItem(QString::number( 1 )));
 
             wgt->funcArray.append( QPointF(x, f(x) ));
 
