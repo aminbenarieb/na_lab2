@@ -42,7 +42,7 @@ public:
 
         tableWidget->setColumnCount(4);
         tableWidget->setFixedWidth(210);
-        tableWidget->setColumnWidth(0,25);
+        tableWidget->setColumnWidth(0,30);
         tableWidget->setColumnWidth(1,62);
         tableWidget->setColumnWidth(2,62);
         tableWidget->setColumnWidth(3,62);
@@ -113,8 +113,8 @@ public slots:
     void actionCalcGraph(){
 
         bool isNumber = false;
-        int dotNumber = lineEditDotCount->text().toInt(&isNumber);
-        if (isNumber && dotNumber > 0)
+        int dotNumber = lineEditDotCount->text().toInt(&isNumber)+1;
+        if (isNumber && dotNumber >= 1 && dotNumber < 50)
         {
             QVector <double> vX;
             QVector <double> vY;
@@ -153,7 +153,7 @@ public slots:
         }
         else
         {
-            showMsg( "Кол-во должно быть положительным целым числом 🌝" );
+            showMsg( "Кол-во должно быть положительным целым числом, не более 50 🌝" );
         }
 
     }
