@@ -55,7 +55,7 @@ QVector <QPointF> CalculationKit::calculate()
         {
             y += (result[i] * pow(j, i));
         }
-        approxArray.append(QPointF(j, y + screenHeight/2));
+        approxArray.append(QPointF(j, y + screenWidth/2));
     }
 
     return approxArray;
