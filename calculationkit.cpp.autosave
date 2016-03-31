@@ -115,7 +115,6 @@ void CalculationKit::sortRows(int i)
         }
     }
 }
-
 int CalculationKit::solveMatrix()
 {
     if (rowCount != columCount)
@@ -129,8 +128,10 @@ int CalculationKit::solveMatrix()
             if (matrix[i][i] != 0) //если главный элемент не 0, то производим вычисления
             {
                 double multElement = matrix[j][i] / matrix[i][i];
+                
                 for (int k = i; k < columCount; k++)
                     matrix[j][k] -= matrix[i][k] * multElement;
+                
                 rightPart[j] -= rightPart[i] * multElement;
             }
             //для нулевого главного элемента просто пропускаем данный шаг
