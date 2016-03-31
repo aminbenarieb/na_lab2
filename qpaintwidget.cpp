@@ -19,11 +19,13 @@ void QPaintWidget::paintEvent(QPaintEvent *) {
 
     for (int i=0; i < funcArray.count()-1; i++)
     {
+
        ppainter.setPen(QPen(Qt::darkRed, kDrawPenWidth));
        ppainter.drawLine( QPointF(funcArray[i].x(), funcArray[i].y() + this->width()/2 ), QPointF(funcArray[i+1].x(), funcArray[i+1].y() + this->width()/2 ) );
        ppainter.setPen(QPen(Qt::red, kDrawPenWidth));
        ppainter.setBrush(QBrush(Qt::red));
        ppainter.drawEllipse( QPointF(funcArray[i].x(), funcArray[i].y() + this->width()/2 ), kDrawPointRadius, kDrawPointRadius);
+       ppainter.drawText(QPointF(funcArray[i].x(), funcArray[i].y() + this->width()/2-20), QString::number(i+1));
     }
 
     ppainter.setPen(QPen(Qt::blue, kDrawPenWidth));
