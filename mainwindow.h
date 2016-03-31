@@ -41,11 +41,11 @@ public:
         //***** TableView Settings ******
 
         tableWidget->setColumnCount(4);
-        tableWidget->setFixedWidth(160);
-        tableWidget->setColumnWidth(0,26);
-        tableWidget->setColumnWidth(1,46);
-        tableWidget->setColumnWidth(2,46);
-        tableWidget->setColumnWidth(3,46);
+        tableWidget->setFixedWidth(210);
+        tableWidget->setColumnWidth(0,25);
+        tableWidget->setColumnWidth(1,62);
+        tableWidget->setColumnWidth(2,62);
+        tableWidget->setColumnWidth(3,62);
 
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setSelectionMode(QAbstractItemView:: SingleSelection);
@@ -114,7 +114,7 @@ public slots:
 
         bool isNumber = false;
         int dotNumber = lineEditDotCount->text().toInt(&isNumber);
-        if (isNumber)
+        if (isNumber && dotNumber > 0)
         {
             QVector <double> vX;
             QVector <double> vY;
